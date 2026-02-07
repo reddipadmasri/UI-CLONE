@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+     :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
+}
+
+body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient( to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+
+/* Custom styles */
+
+.scroll-progress {
+    @apply fixed top-0 left-0 h-1 bg-gradient-to-r from-primary to-accent z-[1001];
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+.image-hover-overlay {
+    @apply absolute inset-0 bg-primary/90 text-white flex flex-col items-center justify-center p-10 text-center opacity-0 transition-opacity duration-500;
+}
+
+.image-container:hover .image-hover-overlay {
+    @apply opacity-100;
+}
